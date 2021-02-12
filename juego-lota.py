@@ -4,6 +4,7 @@ import numpy as np
 from random import randint
 from os import system
 from crea_numeros_carton import *
+from cantar_checkear import *
 
 programa_titulo = "Loteria - tu lota de la playa"
 system("mode 110, 30")
@@ -65,3 +66,45 @@ def crear_carton():
             print("Ingresa una opción válida")
 
 crear_carton()
+
+clear()
+print("¡¡Qué empiece la lota!!")
+print("Si tienes un número que salga, este se marcará con un '-'. Por ejemplo, si sale el 1, se marcará como '-1':")
+print("")
+input("Presiona Enter para sacar el primer número...")
+
+
+numero_cantado = list(np.random.choice(a = np.arange(1,91), size = 90, replace = False))
+
+def juego_loteria():
+    i = 1
+    while any(n > 0 for n in numeros_carton_elegido) or i > len(numero_cantado):
+        print(i)
+        print("En esta tirada el numerito es el " + str(numero_cantado.index(i)))
+        print("")
+        p = checkear_carton(carton = numeros_carton_elegido, n_cantado = numero_cantado.index(i))
+        print(p)
+        print("")
+        proceso_jugador = input("""Presiona Enter para sacar otro número, o 0 si deseas dejar de jugar
+                                
+                                >  """)
+        i += 1
+        if proceso_jugador == "0":
+            clear()
+            print("¡Vuelve pronto!")
+            break
+        
+        elif all(numeros_carton_elegido) < 0:
+            print("")
+            print("LOTERIA! ¡Felicidades! Ganaste la lotería en " + str(i) + " movimientos")
+        
+        else:
+            clear()
+            continue
+        
+    if all(n < 0 for n in numeros_carton_elegido):
+        print("")
+        print("LOTERIA! ¡Felicidades! Ganaste la lotería en " + str(i) + " movimientos")
+        
+    
+juego_loteria()
