@@ -42,4 +42,4 @@ def rellenar_numeros_columnas():
         columna_vacia = all(no_cero)
         
         if numeros_totales == 15 and columna_no_vacia == True:
-            return numeros_carton_particular
+            return list(numeros_carton_particular)
