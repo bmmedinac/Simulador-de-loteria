@@ -14,11 +14,16 @@ def cantar_numeros():
     return numero_cantado
 
 def checkear_carton(carton, n_cantado):
-    if isinstance(n_cantado, list):
-        [n_carton * -1 for n_carton in carton if n_carton in n_cantado]
+    if any(isinstance(el, list) for el in carton):
+        for i in carton:
+            if n_cantado in i:
+                index = i.index(n_cantado)
+                i[index] = n_cantado * -1
+        return carton
         
-    elif isinstance(n_cantado, int):
-        #for n_cantado in carton:
+    else:
+        carton_int = [int(i) for i in carton]
+
         if n_cantado in carton:
             index = carton.index(n_cantado)
             carton[index] = n_cantado * -1
