@@ -9,13 +9,18 @@ Estuve un fin de semana en la playa jugando lotería y quise ver con cuántos n�
 De momento parece que el promedio de victoria ocurre a los 80 de 90 números. 
 
 ## Algunas imágenes
+![Ejemplo de gráfico de progresión global](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 ## Pendiente
 
-- [ ]  Armar una UI para el juego
-- [ ]  Facilitar la simulación de múltiples cartones y jugadores
+- [ ]  Armar una UI para el juego y/o simulación
+- [x]  Organizar las funciones en una clase 'loteria'
+- [x]  Devolver una lista con la proporcion marcado/no marcado
+- [x]  Facilitar la simulación de múltiples cartones y jugadores
 - [ ]  Añadir otros jugadores que compitan por la victoria
-- [ ]  Mostrar una gráfica de tendencias
+- [x]  añadir cartones ilimitados aleatorios seleccionados por el usuario
+- [x]  Mostrar una gráfica de tendencias globales
+- [ ]  Mostrar una gráfica de tendencias de cartones individuales (max = 10)
 - [ ]  Mostrar los números marcados con un color, quizás.
 - [ ]  Ordenar mejor los archivos y carpetas
 - [ ]  Documentar las funciones

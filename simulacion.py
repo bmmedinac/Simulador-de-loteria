@@ -7,6 +7,12 @@ import matplotlib.pyplot as plt
 
 class loteria():
     
+    def cantada_numeros():
+        numero = []
+        while len(numero) < 91:
+            numero = np.random.choice(a = 91, size = 90, replace = False)
+        return list(numero)
+    
     def __init__(self, negativos, positivos):
         self.negativos = negativos
         self.positivos = positivos
@@ -35,6 +41,9 @@ class loteria():
         
         return positivos, negativos
     
+    
+    
+    
     def crear_cartones(cantidad_cartones = 1):
         
         # Crea la cantidad de cartones a simular
@@ -44,6 +53,9 @@ class loteria():
             cartones.append(solicitados)
         
         return cartones
+    
+    
+    
     
     def simular_numero_victorias(numeros_carton_elegido, primer_ganador = True):
         
@@ -68,37 +80,31 @@ class loteria():
                 
         return proporcion
         
-    def plot_proporcion(n):
-        proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False)
-        progresion = tupleCounts2Percents(proporcion)
-        x_axis = list(range(1, len(progresion) + 1))
-        y_axis_positive = [x[0] for x in progresion]
-        y_axis_negative = [x[1] for x in progresion]
         
-        plt.plot(x_axis, y_axis_positive, label = "No marcado")
-        plt.plot(x_axis, y_axis_negative, label = "Marcado")
-        plt.ylabel('Proporción de números marcados')
-        plt.xlabel('Iteración')
-        plt.title('Progresión del marcado de números en ' + str(n) + " cartones")
-        plt.xticks(np.arange(0, 91, 5))
-        plt.legend()
-        return plt.show()
         
-#list(enumerate(proporcion)) ,
-#print(loteria.crear_cartones(10))
-#loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False)
-#a = [1, 2, 4, 4]
-#b = [-1, -2, -3, -4]
-#c = [1, 2, -3, -4]
-#d = [a, b, c]
+        
+    def plot_proporcion(n, general = True):
+        if general == True:
+            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False)
+            progresion = tupleCounts2Percents(proporcion)
+            x_axis = list(range(1, len(progresion) + 1))
+            y_axis_positive = [x[0] for x in progresion]
+            y_axis_negative = [x[1] for x in progresion]
+            
+            plt.plot(x_axis, y_axis_positive, label = "No marcado")
+            plt.plot(x_axis, y_axis_negative, label = "Marcado")
+            plt.ylabel('Proporción de números marcados')
+            plt.xlabel('Iteración')
+            plt.title('Progresión del marcado de números en ' + str(n) + " cartones")
+            plt.xticks(np.arange(0, 91, 5))
+            plt.legend()
+            return plt.show()
 
-loteria.plot_proporcion(100)
-#n_cantado = list(np.random.choice(a = np.arange(1,91), size = 90, replace = False))
-#checkear_carton(cartones, n_cantado)
+        else:
+            print("pendiente")
+        
 
-#loteria.conteo_polaridad(loteria.crear_cartones())
-#print(loteria.crear_cartones())
+loteria.plot_proporcion(3)
 
-
-#polaridad = loteria.conteo_polaridad([1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, -3])
-#print(polaridad)
+#loteria.conteo_polaridad(loteria.crear_cartones)
+#print(loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False))
