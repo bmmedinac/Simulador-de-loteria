@@ -11,6 +11,8 @@ De momento parece que el promedio de victoria ocurre a los 80 de 90 números.
 ## Algunas imágenes
 ![Ejemplo de gráfico de progresión global](https://github.com/bmmedinac/lota/blob/main/img/plot_progresion.png)
 
+![Ejemplo de gráfico de progresión individual](https://github.com/bmmedinac/lota/blob/main/img/plot_progresion_individual.png)
+
 ## Pendiente
 
 - [ ]  Armar una UI para el juego y/o simulación
