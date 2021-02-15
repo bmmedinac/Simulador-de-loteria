@@ -102,9 +102,34 @@ class loteria():
 
         else:
             print("pendiente")
+
         
-
-loteria.plot_proporcion(3)
-
-#loteria.conteo_polaridad(loteria.crear_cartones)
+loteria.plot_proporcion(30)
 #print(loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False))
+#loteria.plot_proporcion(2, True)
+#print(loteria.plot_proporcion(2, True))
+#proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False)
+#print(proporcion)
+#print(conteo_polaridad(loteria.crear_cartones(2)))
+#print(loteria.simular_numero_victorias(loteria.crear_cartones(50), primer_ganador=False)[4])
+#print(loteria.conteo_polaridad(loteria.crear_cartones(30)))
+#cantidad = 2
+#test_list = loteria.simular_numero_victorias(loteria.crear_cartones(cantidad), primer_ganador=False)
+#[print(c) for i in test_list for c in i ]
+#print("ESTA ES LA LISTA DE POLARIDAD DE LOS CARTONES")
+#print(test_list)
+#print("ESTOS SON LOS DOS PRIMEROS NUMEROS DE POLARIDAD DE LOS DOS CARTONES")
+#print(test_list[0])
+#rotated = list(zip(*test_list))
+#carton_uno = rotated[0]
+#carton_dos = rotated[1]
+#carton2_index_tres = test_list[2]
+#print("ESTA ES LA POLARIDAD DEL CARTON 1")
+#print(carton_uno)
+#print("ESTA ES LA POLARIDAD DEL CARTON 2")
+#print(carton_dos, carton2_index_tres)
+#progresion = tupleCounts2Percents(test_list)
+#print("")
+#print(tupleCounts2Percents(carton_dos))
+#print("")
+#print(rotated)
