@@ -133,5 +133,3 @@ class loteria():
             plt.legend()
             
             return plt.show()
-
-print(loteria.plot_proporcion(200, False))
