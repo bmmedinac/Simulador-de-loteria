@@ -20,7 +20,7 @@ De momento parece que el promedio de victoria ocurre a los 80 de 90 números.
 - [ ]  Añadir otros jugadores que compitan por la victoria en el archivo 'juego-lota.py'
 - [x]  añadir cartones ilimitados aleatorios seleccionados por el usuario
 - [x]  Mostrar una gráfica de tendencias globales
-- [ ]  Mostrar una gráfica de tendencias de cartones individuales (max = 10)
+- [x]  Mostrar una gráfica de tendencias de cartones individuales (n = 5)
 - [ ]  Mostrar los números marcados con un color, quizás.
 - [ ]  Ordenar mejor los archivos y carpetas
 - [ ]  Documentar las funciones
