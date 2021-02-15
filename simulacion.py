@@ -57,7 +57,7 @@ class loteria():
     
     
     
-    def simular_numero_victorias(numeros_carton_elegido, primer_ganador = True):
+    def simular_numero_victorias(numeros_carton_elegido, primer_ganador = True, agregado = True):
         
         numero_cantado = list(np.random.choice(a = np.arange(1,91), size = 90, replace = False))
         loop = 1
@@ -75,8 +75,13 @@ class loteria():
                     break
                 
             if primer_ganador == False:
-                pos_neg = conteo_polaridad(p)
-                proporcion.append(pos_neg)
+                if agregado == True:
+                    pos_neg = conteo_polaridad(p)
+                    proporcion.append(pos_neg)
+                
+                if agregado == False:
+                    pos_neg = [conteo_polaridad(x) for x in p]
+                    proporcion.append(pos_neg)
                 
         return proporcion
         
@@ -85,7 +90,7 @@ class loteria():
         
     def plot_proporcion(n, general = True):
         if general == True:
-            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False)
+            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False, agregado = True)
             progresion = tupleCounts2Percents(proporcion)
             x_axis = list(range(1, len(progresion) + 1))
             y_axis_positive = [x[0] for x in progresion]
@@ -99,13 +104,21 @@ class loteria():
             plt.xticks(np.arange(0, 91, 5))
             plt.legend()
             return plt.show()
+        
+        ## En desarrollo
+        if general == False:
+            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False, agregado = False)
+            progresion = tupleCounts2Percents(proporcion)
+            return proporcion      
 
-        else:
-            print("pendiente")
+        if general == False:
+            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False)
+            progresion = tupleCounts2Percents(proporcion)
+            print(progresion)
 
         
-loteria.plot_proporcion(30)
-#print(loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False))
+loteria.plot_proporcion(1, False)
+#print(loteria.simular_numero_victorias(loteria.crear_cartones(30), primer_ganador=False))
 #loteria.plot_proporcion(2, True)
 #print(loteria.plot_proporcion(2, True))
 #proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(2), primer_ganador=False)
