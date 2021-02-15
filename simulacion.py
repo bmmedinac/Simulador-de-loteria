@@ -6,7 +6,7 @@ from cantar_checkear import *
 import matplotlib.pyplot as plt
 
 class loteria():
-    
+    ####
     def cantada_numeros():
         numero = []
         while len(numero) < 91:
@@ -87,49 +87,60 @@ class loteria():
         
         
         
+    class simular():   
         
-    def plot_proporcion(n, general = True):
-
-        if general == True:
-            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False, agregado = True)
-            progresion = tupleCounts2Percents(proporcion)
-            x_axis = list(range(1, len(progresion) + 1))
-            y_axis_positive = [x[0] for x in progresion]
-            y_axis_negative = [x[1] for x in progresion]
-            
-            plt.plot(x_axis, y_axis_positive, label = "No marcado")
-            plt.plot(x_axis, y_axis_negative, label = "Marcado")
-            plt.ylabel('Proporción de números marcados')
-            plt.xlabel('Iteración')
-            plt.title('Progresión del marcado de números en ' + str(n) + " cartones")
-            plt.xticks(np.arange(0, 91, 5))
-            plt.legend()
-            return plt.show()
+        def __init__(self, general = True): 
+        # create a inner class object 
+            #self.proporcion = proporcion
+            self.general = general
         
-        ## En desarrollo
-        if general == False:
-            num = limit(n)
-            num = 5
-            proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(num), primer_ganador=False, agregado = False)
-            rotated = list(zip(*proporcion))
-            #progresion = tupleCounts2Percents(proporcion[0])
-            progresion = [tupleCounts2Percents(x) for x in rotated]
-            x_axis = list(range(1, 91))
-            y_axis_positive0 = [x[1] for x in progresion[0]]
-            y_axis_positive1 = [x[1] for x in progresion[1]]
-            y_axis_positive2 = [x[1] for x in progresion[2]]
-            y_axis_positive3 = [x[1] for x in progresion[3]]
-            y_axis_positive4 = [x[1] for x in progresion[4]]
-            #y0 = progresion[0][78][0]
-            plt.plot(x_axis, y_axis_positive0, label = "Cartón 1")
-            plt.plot(x_axis, y_axis_positive1, label = "Cartón 2")
-            plt.plot(x_axis, y_axis_positive2, label = "Cartón 3")
-            plt.plot(x_axis, y_axis_positive3, label = "Cartón 4")
-            plt.plot(x_axis, y_axis_positive4, label = "Cartón 5")
-            plt.ylabel('Proporción de números marcados')
-            plt.xlabel('Iteración')
-            plt.title('Progresión del marcado de números en ' + str(num) + " cartones")
-            plt.xticks(np.arange(0, 91, 5))
-            plt.legend()
+        def proporcion(n, general = True):
+            if general == True:
+                proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False, agregado = True)
+                progresion = tupleCounts2Percents(proporcion)
+                return progresion
             
-            return plt.show()
+            if general == False:
+                num = limit(n)
+                num = 5
+                proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(num), primer_ganador=False, agregado = False)
+                rotated = list(zip(*proporcion))
+                progresion = [tupleCounts2Percents(x) for x in rotated]
+            
+                return progresion
+        
+        def plot(progresion, general = True):
+            
+            if general == True:
+                x_axis = list(range(1, 91))
+                y_axis_positive = [x[0] for x in progresion]
+                y_axis_negative = [x[1] for x in progresion]
+                
+                plt.plot(x_axis, y_axis_positive, label = "No marcado")
+                plt.plot(x_axis, y_axis_negative, label = "Marcado")
+                plt.ylabel('Proporción de números marcados')
+                plt.xlabel('Iteración')
+                plt.title("Progresión del marcado de números en cartones")
+                plt.xticks(np.arange(0, 91, 5))
+                plt.legend()
+                return plt.show()
+            
+            if general == False:
+                x_axis = list(range(1, 91))
+                y_axis_positive0 = [x[1] for x in progresion[0]]
+                y_axis_positive1 = [x[1] for x in progresion[1]]
+                y_axis_positive2 = [x[1] for x in progresion[2]]
+                y_axis_positive3 = [x[1] for x in progresion[3]]
+                y_axis_positive4 = [x[1] for x in progresion[4]]
+                #y0 = progresion[0][78][0]
+                plt.plot(x_axis, y_axis_positive0, label = "Cartón 1")
+                plt.plot(x_axis, y_axis_positive1, label = "Cartón 2")
+                plt.plot(x_axis, y_axis_positive2, label = "Cartón 3")
+                plt.plot(x_axis, y_axis_positive3, label = "Cartón 4")
+                plt.plot(x_axis, y_axis_positive4, label = "Cartón 5")
+                plt.ylabel('Proporción de números marcados')
+                plt.xlabel('Iteración')
+                plt.title("Progresión del marcado de números en cartones")
+                plt.xticks(np.arange(0, 91, 5))
+                plt.legend()
+                return plt.show()
