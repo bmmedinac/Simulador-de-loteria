@@ -9,7 +9,7 @@ Estuve un fin de semana en la playa jugando lotería y quise ver con cuántos n�
 De momento parece que el promedio de victoria ocurre a los 80 de 90 números. 
 
 ## Algunas imágenes
-![Ejemplo de gráfico de progresión global](hhttps://github.com/bmmedinac/lota/blob/main/img/plot_progresion.png)
+[Ejemplo de gráfico de progresión global](hhttps://github.com/bmmedinac/lota/blob/main/img/plot_progresion.png)
 
 ## Pendiente
 
