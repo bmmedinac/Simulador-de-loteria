@@ -22,7 +22,7 @@ def checkear_carton(carton, n_cantado):
         return carton
         
     else:
-        carton_int = [int(i) for i in carton]
+        #carton_int = [int(i) for i in carton]
 
         if n_cantado in carton:
             index = carton.index(n_cantado)
@@ -30,4 +30,32 @@ def checkear_carton(carton, n_cantado):
             return carton
         else:
             return carton
-        #carton_marcado = [n_carton * -1 for n_carton in carton if n_cantado == n_carton]
+
+def conteo_polaridad(cartones):
+        positivos, negativos = 0, 0
+    
+        if any(isinstance(el, list) for el in cartones):
+            for num in cartones: 
+                for c in num:
+                # checking condition 
+                    if c >= 0: 
+                        positivos += 1
+                        
+                    else: 
+                        negativos += 1
+    
+        elif len(cartones) == 15:
+            for num in cartones: 
+                # checking condition 
+                    if num >= 0: 
+                        positivos += 1
+                        
+                    else: 
+                        negativos += 1
+        
+        return positivos, negativos
+
+def tupleCounts2Percents(inputList):
+    total = max(x[0] for x in inputList)
+    return [(round((100 * x[0]/total), 1),
+            round((100 * x[1]/total), 1)) for x in inputList]
