@@ -101,9 +101,7 @@ class loteria():
                 return progresion
             
             if general == False:
-                num = limit(n)
-                num = 5
-                proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(num), primer_ganador=False, agregado = False)
+                proporcion = loteria.simular_numero_victorias(loteria.crear_cartones(n), primer_ganador=False, agregado = False)
                 rotated = list(zip(*proporcion))
                 progresion = [tupleCounts2Percents(x) for x in rotated]
             
@@ -132,15 +130,37 @@ class loteria():
                 y_axis_positive2 = [x[1] for x in progresion[2]]
                 y_axis_positive3 = [x[1] for x in progresion[3]]
                 y_axis_positive4 = [x[1] for x in progresion[4]]
-                #y0 = progresion[0][78][0]
+                
                 plt.plot(x_axis, y_axis_positive0, label = "Cartón 1")
                 plt.plot(x_axis, y_axis_positive1, label = "Cartón 2")
                 plt.plot(x_axis, y_axis_positive2, label = "Cartón 3")
                 plt.plot(x_axis, y_axis_positive3, label = "Cartón 4")
                 plt.plot(x_axis, y_axis_positive4, label = "Cartón 5")
                 plt.ylabel('Proporción de números marcados')
-                plt.xlabel('Iteración')
+                plt.xlabel('Iteración (5 primeros cartones')
                 plt.title("Progresión del marcado de números en cartones")
                 plt.xticks(np.arange(0, 91, 5))
                 plt.legend()
                 return plt.show()
+            
+
+
+testing = loteria.simular.proporcion(100, general=False)
+plot = loteria.simular.plot(testing, False)
+print(plot)
+
+
+# PENDIENTE: VER CÓMO AÑADIR LA MEDIA Y LA DESV ESTANDAR AL GRÁFICO DE SIMULACION GENERAL
+#testing = [x[1] for i in list(range(0, len(testing))) for x in testing[i]]
+#counter = 0
+#listado = []
+#for x in testing:
+#    counter += 1
+#    if x == 100:
+#        listado.append(counter)
+#        counter = 0
+#lista = [x for x in listado if x != 1]
+#print(np.mean(lista))
+#print(np.std(lista))
+
+
